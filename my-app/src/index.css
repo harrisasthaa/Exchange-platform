@@ -1,0 +1,221 @@
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing: border-box;
+  font-family: 'Delicious Handrawn', cursive;
+  font-family: 'Mulish', sans-serif;}
+
+  .mdgridcol{
+    border:2px solid black;
+  }
+  
+  .heading1{
+    font-size: 2rem;
+    padding: 10px;
+    
+  }
+  .mg10{
+    margin:10px;
+  }
+  .blue{
+    color:rgb(50, 132, 239);
+  }
+  .center{
+    text-align: center;
+  }
+  .bold{
+    font-weight: 600;
+  }
+  .page_container{
+    height:93vh;
+    width:100vw;
+    background-color: rgb(242, 241, 241);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .all_of_content_form{
+    /* justify-content: center;
+    display:flex; */
+    background-color: white;
+    box-shadow: 8px 8px 5px rgb(221, 218, 218);
+    width:60vw;
+    margin:auto;
+  }
+  .super_form_container{
+    display:flex; 
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    /* background-color: white;
+    box-shadow: 8px 8px 5px rgb(221, 218, 218);
+    width:60%;
+    margin:auto; */
+  
+  }
+  .form_container{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    align-items: center;
+    justify-content: center;
+    
+  
+  }
+  .input_element{
+    background: none;
+    outline:none;
+    border:none;
+    text-align: center;
+  }
+  .form_element{
+    margin: 10px 0px;
+    border-bottom: 2px solid black;
+    
+  
+  }
+  .form_submit_btn{
+    margin:10px;
+    border-radius: 15px;
+    padding: 0px 11px;
+    transition:all 0.6s ease-out;
+  
+  }
+  .form_submit_btn:hover{
+    background-color: rgb(81, 78, 78);
+    color: white;
+  }
+  .cartoonistic_image{
+    height: 300px;
+    width:320px;
+    /* border: 2px solid black; */
+  }
+  .homeimage_con{
+    height:400px;
+    width:450px;
+    
+    margin:3%;
+  }
+  .cartoonistic_image_home{
+    position: relative;
+    top:-20px;
+    height: 100%;
+    width:100%;
+    animation-name:updown1;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+  
+   
+  }
+  @keyframes updown{
+    0%{
+        top:-2rem;
+    }
+    50%{
+        top:0px;
+    }
+    100%{
+      top:-2rem;
+    }
+  
+  }
+  @keyframes updown1{
+    0%{
+      top:0rem;
+    }
+    25%{
+      top:1rem;
+    }
+    50%{
+      top:0rem;
+    }
+    75%{
+      top:-1rem;
+    }
+    100%{
+      top:0rem;
+    }
+  }
+  /* .all_content_home{
+    display:flex; 
+    width:100vw;
+    justify-content: center;
+    align-items: center;
+    border:2px solid red;
+  } */
+  .general_container{
+   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2% 2%;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  .general_btn{
+    padding:5px 15px;
+    border-radius: 15px;
+    transition: all 0.6s ease-out;
+    color:rgb(50, 132, 239);
+    border:2px solid rgb(50, 132, 239);
+    margin:20px;
+    background-color: white;
+  }
+  .general_btn:hover{
+    background-color: rgb(50, 132, 239);
+    color: white;
+  }
+
+   .card_con{
+    padding:0 5%;
+   
+
+  } 
+ .icon{
+  background-color: 'white';
+  color:#2c76f6;
+ }
+ .navbar_padding{
+  padding:0px 2rem;
+ }
+.catcard{
+  min-width: 500px;
+  margin:20px;
+}
+
+@media screen and (max-width:1080px){
+  .form_container{
+    width:90vw;
+    padding-top:10px;
+  }
+}
+@media screen and (max-width:600px){
+  .homeimage_con{
+    width: 300px;
+    height:280px;
+  }
+  .catcard{
+    max-width:90vh;
+    margin-left: 6px;
+  }
+  .cartoonistic_image{
+    height:200px;
+    width: 200px;
+  }
+}
+@media screen and (max-width:770px){
+  .about_target{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .all_of_content_form{
+    width:92%;
+  }
+}
+
+.footer{
+ line-height: 2px;
+}

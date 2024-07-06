@@ -1,0 +1,2098 @@
+ LECTURE - 1
+1. Babel executes jsx present in return part of function in 
+react.
+2. it is simple bascially we write jsx(java script xml)(some 
+different version of html+javascript) inside function return 
+statement and do our designing in app.css file which we are 
+importing in app.js and using functionalities.
+3. React is use in single page web application 
+4. Uptil now the things which i learned is for multi page 
+application
+5. Babel is responsible for execution of react it converts our 
+javascript in that format which our web browser can 
+understand.
+6. Writing " var React= require("react"); " is complex task 
+and it is used in old methods in modern javascript babel is 
+present which can automatically convert your code into js 
+which our browser could understand so we can use easy 
+language which our modern js support.
+hence we can write " import React from 'react' ; " and 
+ " import ReactDOM from 'react-dom' ";
+**********************************Code*************
+***************************************************
+**************
+(INDEX.JS) FILE
+// var React=require('react'); -> it is old version now due to 
+babel we can write like this:
+import React from 'react';
+// var ReactDOM=require('react-dom'); -> again a old 
+version 
+import ReactDOM from 'react-dom';
+// ReactDOM.render('kya dikhana hai','kaha dikhana 
+hai','callback funciton');
+// The first part or argument of ReactDOM.render is not a 
+simple html it is basically jsx 
+// ReactDOM.render(<h1> Hello good 
+World!!</h1>,document.getElementById('root'));
+// var h1=document.createElement('h1');
+// h1.innerHTML='harsh raghuvanshi the gr8 boy';
+// document.getElementById('root').appendChild(h1);
+***************************************************
+***************************************************
+****************
+LECTURE - 2 
+1. ReactDOM.render takes only one element so if we want to 
+pass multiple element then we have to enclose it in a single 
+parent tag 
+2. In React version > 16 we can pass array of elements for 
+render();
+******************************CODE****************
+*****************
+import React from "react";
+import ReactDOM from "react-dom";
+// ReactDOM.render(
+// <div>
+// <h1> Hello good World!!</h1>
+// <h2>heloo i am student from dtu</h2>
+// <p>I find it nice to meet you guys...</p>
+// </div>,
+// document.getElementById("root")
+// );
+// ReactDOM.render(
+// [
+// <h1> Hello1 good World!!</h1>,
+// <h2>heloo i am student from dtu</h2>,
+// <p>I find it nice to meet you guys...</p>
+// ],
+// document.getElementById("root")
+// );
+***************************************************
+****************
+LECTURE - 3
+1. we have to enclose tags in single tag in render() for that we
+use React fragment instead of any other tag or array we 
+declare it via <React.Fragment> or <>
+************************CODE**********************
+**************
+import React from "react";
+// var ReactDOM=require('react-dom'); -> again a old 
+version
+import ReactDOM from "react-dom";
+ReactDOM.render(
+ <React.Fragment>
+ <h1> Hello good World!!</h1>
+ <h2>heloo i am student from dtu</h2>
+ <p>I find it nice to meet you guys...</p>
+ </React.Fragment>,
+ document.getElementById("root")
+);
+// it is also same
+ReactDOM.render(
+ <>
+ <h1> Hello good World!!</h1>
+ <h2>heloo i am student from dtu</h2>
+ <p>I find it nice to meet you guys...</p>
+ </>,
+ document.getElementById("root")
+);
+***************************************************
+*****************
+LECTURE -4 
+1. We have seen that in js file (index.js) we can write html in 
+render() function using react fragment but inside that we if 
+have to again write js than we can use curly braces to achive 
+that.
+2. like <h1> my name is {name1} </h1>
+3. limitation is that we can only write expression in curly 
+braces nothing else is allowed to write in it.
+*************************CODE*********************
+***************
+import React from "react";
+import ReactDOM from "react-dom";
+const name1='harsh raghuvanshi';
+ReactDOM.render(
+ <>
+ <h1>my name is {name1}</h1>
+ <p>The valuse of 2+3 is {2+3}</p>
+ </>,
+ document.getElementById("root")
+);
+***************************************************
+**************
+LECTURE - 5(TEMPLATE LITERALS IN JSX)
+1. template literals are also used to add js in html but it is 
+more feasible method as compared to { }.
+2. In order to use we use backtics it is same as nodejs 
+template literals
+***************************CODE*******************
+***********
+import React from "react";
+import ReactDOM from "react-dom";
+const name1='harsh raghuvanshi';
+ReactDOM.render(
+ <>
+ <h1>{`my name is ${name1}`}</h1>
+ <p>The valuse of 2+3 is {2+3}</p>
+ </>,
+ document.getElementById("root")
+);
+***************************************************
+*************
+LECTURE 6 
+(CHALLENGE IS :Display Current Date and Time in JSX in 
+React JS )
+1. here we use Date function of js
+2. toLocaleDateString() and toLocaleTimeString() are going 
+to give the local system time
+**************************CODE********************
+************
+import React from "react";
+import ReactDOM from "react-dom";
+const name1='harsh raghuvanshi';
+const currDate= new Date().toLocaleDateString();
+const currTime=new Date().toLocaleTimeString();
+ReactDOM.render(
+ <>
+ <h1>{`my name is ${name1}`}</h1>
+ <p>{`The DATE is ${currDate}`}</p>
+ <p>{`The TIME is ${currTime}`}</p>
+ </>,
+ document.getElementById("root")
+);
+***************************************************
+****************
+LECTURE-7
+1.Since html in reactjs is replaced by jsx so the attributes 
+present in jsx are called as jsx attributes.
+2. These attributes are same as html attributes instead they 
+are written in camelCase convention.
+3. All those tags in html which have only opening tag get 
+converted to self closing tag when written in jsx like <img 
+src=" ....." alt="..." ..>
+looks like <img/>
+4. we can also have dummy images just like dummy text that 
+we create using lorem , go to lorem picsum website copy the 
+link and paste it in src attribute of img.
+**************************CODE********************
+************
+import React from "react";
+import ReactDOM from "react-dom";
+const name1 = "harsh raghuvanshi";
+const img2 = "https://picsum.photos/200/300";
+const img3 = "https://picsum.photos/400/400";
+ReactDOM.render(
+ <>
+ <h1 contentEditable="true">MY name is {name1}</h1>
+ <img src="https://picsum.photos/400/300" alt="Random 
+image" />
+ <img src={img2} alt="Random image" />
+ <a href="google.com" target="_nothing">
+ <img src={img3} alt="Random image" />
+ </a>
+ </>,
+ document.getElementById("root")
+);
+***************************************************
+****************
+LECTURE-8
+1. We can perform our styling in index.css and simply include
+that in your indes.js file.
+2. Now to assign a class to html element we do'nt write 
+class="... .." instead we write className=".............".
+******************CODE****************************
+****************
+INDEX.CSS FILE
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+.head{
+ color:red;
+ text-align: center;
+ font-family: cursive;
+}
+.pic{
+ text-align: center;
+ padding: 10px;
+ display: block;
+ margin:auto;
+}
+INDEX.JS FILE
+import React from "react";
+import ReactDOM from "react-dom";
+import './index.css';
+const name1 = "harsh raghuvanshi";
+const img2 = "https://picsum.photos/200/300";
+const img3 = "https://picsum.photos/400/400";
+ReactDOM.render(
+ <>
+ <h1 className="head" >MY name is {name1}</h1>
+ <img className="pic" src="https://picsum.photos/400/300"
+alt="Random image" />
+ <img className="pic" src={img2} alt="Random image" />
+ <a href="google.com" target="_nothing">
+ <img className="pic" src={img3} alt="Random image" />
+ </a>
+ </>,
+ document.getElementById("root")
+);
+***************************************************
+******************
+LECTURE-9
+1. We can also inline styling in jsx but it is different from 
+html in case of jsx we create a style attribute and in that we 
+pass and object containing key value pair as css properties
+SYNTAX : <tag ... style={ object } .......... > ........... 
+</tag>
+2. In the object which we pass in style tag all the value pair 
+get enclosed in upper commas and kebbal case convetion 
+(asdf - asdf) get transformed to camelCase in key pairs.
+******************************CODE****************
+***************
+INDEX.JS FILE
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+const name1 = "harsh raghuvanshi";
+const img2 = "https://picsum.photos/200/300";
+const img3 = "https://picsum.photos/400/400";
+ReactDOM.render(
+ <>
+ <h1
+ className="head"
+ style={{
+ color: "red",
+ textAlign: "center",
+ fontFamily: "'Delicious Handrawn', cursive",
+ }}
+ >
+ MY name is {name1}
+ </h1>
+ <img
+ className="pic"
+ src="https://picsum.photos/400/300"
+ alt="Random image"
+ />
+ <img className="pic" src={img2} alt="Random image" />
+ <a href="google.com" target="_nothing">
+ <img className="pic" src={img3} alt="Random image" />
+ </a>
+ </>,
+ document.getElementById("root")
+);
+INDEX.CSS FILE
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+.pic{
+ text-align: center;
+ padding: 10px;
+ display: block;
+ margin:auto;
+}
+***************************************************
+******************
+LECTURE-10
+1. we have to make a project which will going to wish the 
+time , and the wishing and color of wishing is supposed to 
+change with time.
+******************************CODE****************
+***************
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+let greeting = "Good Morning";
+let obj = {
+ color: "aqua",
+ fontFamily:'cursive'
+};
+let currTime = new Date(2023,5,5,12).getHours();
+if (currTime >= 1 && currTime <= 11) {
+ greeting = "Good Morning";
+ obj.color = "green";
+} else if (currTime >= 12 && currTime <= 19) {
+ greeting = "Good Afternoon";
+ obj.color = "yellow";
+} else {
+ greeting = "Good Night";
+ obj.color = "blue";
+}
+ReactDOM.render(
+ <>
+ <div className="backgr">
+ <div className="contain">
+ <h1 className="greet">{`Hello Harsh Raghuvanshi 
+`}</h1>
+ <h1 style={obj}>{` : ${greeting}`}</h1>
+ </div>
+ </div>
+ </>,
+ document.getElementById("root")
+);
+***************************************************
+******************
+LECTURE-10(React function based components)
+1. In react function based component we create function for 
+different content which is present on our webpage and 
+simply using these function instead of rewriting it .
+2. In order to create function for Header,paragraph some 
+other content etc. we create a file in src directory and name 
+it like Header.jsx , Paragrapht.jsx etc.
+NOTE: first letter will be capital .
+3. Then we write our function there and export it .
+NORMAL CODE LOOKS LIKE:
+import React from "react";
+import ReactDOM from "react-dom";
+ReactDOM.render(
+ <>
+ <h1>This is Heading</h1>
+ <p>This id small paragraph</p>
+ <ol>
+ <li>Home </li>
+ <li>About</li>
+ <li>Contact Us</li>
+ <li>Services</li>~
+ </ol>
+ </>,
+ document.getElementById("root")
+);
+NEW CODE:
+INDEX.JS****************************
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+ReactDOM.render(<App />, 
+document.getElementById("root"));
+APP.JSX******************************
+import React from "react";
+import ReactDOM from "react-dom";
+import Heading from "./Heading";
+import Paragraph from "./Paragraph";
+import Content from "./Content";
+function App() {
+ return(
+ <>
+ <Heading />
+ <Paragraph />
+ <Content />
+ </>
+ );
+}
+export default App;
+HEADING.JSX*********************************
+import React from "react";
+function Header() {
+ return <h1>This is Heading</h1>;
+}
+export default Header;
+PARAGRAPH.JSX*******************************
+import React from "react";
+function Paragraph() {
+ return <p>This is small paragraph</p>;
+}
+export default Paragraph;
+CONTENT.JSX******************************
+import React from "react";
+function Content() {
+ return (
+ <ol>
+ <li>Home </li>
+ <li>About</li>
+ <li>Contact Us</li>
+ <li>Services</li>
+ </ol>
+ );
+}
+export default Content;
+***************************************************
+***************************************************
+****************
+LECTURE-11
+1. We can export any element of a jsx file in default mode or 
+in normal mode in default mode you can export only one 
+element 
+SYNTAX : export default func_name;
+SYNTAX : import any_name from '.... ';
+ and while importing default exported element we can 
+import it with any name .
+2. In normal mode of export we have to import the element 
+with the exactly same name as it is exported.
+SYNTAX : export {func_name1 , func_name2 , 
+func_name3 } ;
+SYNTAX : import {func_name1 , func_name2 , 
+func_name3 } from '.... . . . .';
+INDEX.JS CODE*************************
+import React from "react";
+import ReactDOM from "react-dom";
+import App1 ,{number,name,greet} from "./App";
+ReactDOM.render(
+ <>
+ <ol>
+ <li>{App1()}</li>
+ <li>{number}</li>
+ <li>{name}</li>
+ <li>{greet()}</li>
+ </ol>
+ </>
+ , document.getElementById("root"));
+***********************************
+APP.JS CODE **********************************
+import React from "react";
+// import ReactDOM from "react-dom";
+// import Heading from "./Heading";
+// import Paragraph from "./Paragraph";
+// import Content from "./Content";
+function App(){
+ return 24;
+}
+const name='harsh raghuvanshi';
+const number=6789;
+function greet(){
+ let greeeting='Hellow how are you';
+ return greeeting;
+}
+export default App;
+export {number,name,greet};
+****************************************
+***************************************************
+***************************************************
+***************
+LECTURE-12 (PROPS(properties) IN REACTJS)
+1. We have seen uptil now that we can create our own 
+custom tags which we call as component now we know that 
+react js also provide us with the functionality to create 
+custom attributes which we call as props , we can simply 
+create these attributes and pass along with our components.
+2. props is basically an object which contain our values of 
+custom attributes in form of key value pair , that is why we 
+pass props as argument during component function creation.
+3. We Do not use the name for custom attributes same as html
+reserve attributes name that is try to avoid giving the name 
+className, fontFamily to any custom attribute.
+INDEX.JS FILE*********************************
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import Card from "./Card";
+import "./index.css";
+ReactDOM.render(
+ <App/>,
+ document.getElementById("root")
+);
+*******************************************
+APP.JS FILE******************************
+import React from "react";
+import Card from "./Card";
+function App() {
+ return (
+ <>
+ <Card name="Harsh Raghuvanshi" date="25-03-23" 
+tittle="Mini Drafter" price="234"/>
+ <Card name="Sumit Singh" date="12-01-23" tittle="Books" 
+price="100" />
+ <Card name="Alex " date="22-03-23" tittle="Labcoat" 
+price="Exchange" />
+ </>
+ );
+}
+export default App;
+*******************************************
+CARD.JSX FILE*******************
+import React from "react";
+function Card(props) {
+ console.log(props.name);
+ return (
+ <>
+ <div className="card">
+ <div className="header">
+ <h2 className="upld_name">{props.name}</h2>
+ <p className="upld_date">{props.date}</p>
+ </div>
+ <img
+ src="https://picsum.photos/300/200"
+ alt="Product Image"
+ />
+ <div className="content">
+ <span className="item_tittle">{props.tittle}</span>
+ <span className="price">Price : {props.price}</span>
+ <p className="descr">
+ Lorem ipsum dolor sit, amet consectetur adipisicing 
+elit. Quisquam,
+ eos.
+ </p>
+ <button className="chat">CHAT</button>
+ </div>
+ </div>
+ </>
+ );
+}
+export default Card;
+**********************************************
+INDEX.CSS***********************
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: cursive;
+}
+.card{
+ border: 2px solid black;
+ border-radius: 20px;
+ max-width: 303px;
+ min-width: 200px;
+ margin:20px;
+ display:inline-block;
+}
+.header{
+ background-color:rgb(248, 216, 156);
+ border-radius: 20px;
+}
+.content{
+ background-color: rgb(251, 199, 103);
+ border-radius: 20px;
+}
+.chat{
+ display:block;
+ margin:0px auto;
+}
+.item_tittle{
+ font-weight: 600;
+ padding-left: 20px;
+ padding-right: 30px;
+}
+.price{
+ font-weight: 600;
+}
+.descr{
+ padding:10px;
+}
+.upld_date{
+ text-align: center;
+}
+.upld_name{
+ text-align: center;
+}
+*************************************
+***************************************************
+*******************
+LECTURE-13
+1. In this lecture we have seen how we can avoid passing 
+values manually to custom attributes while calling the 
+componenets.
+2. For that we have created a file ARROBJ.JSX which 
+contain and array of object and this array of object contain 
+the values of custom attributes.
+ARROBJ.JSX******************************
+let array = [
+ {
+ name: "Harsh Raghuvanshi",
+ date: "25-03-23",
+ tittle: "Mini Drafter",
+ price: "234",
+ },
+ { name: "Sumit Singh", date: "12-01-23", tittle: "Books", price:
+"100" },
+ { name: "Alex ", date: "22-03-23", tittle: "Labcoat", price: 
+"Exchange" },
+ { name: "Bob ", date: "28-03-23", tittle: "Calculator", price: 
+"Exchange" },
+];
+export default array;
+***********************************
+***************************************************
+*****************
+LECTURE-14
+1. continuation of lecture13 in this we will look how we can 
+avoid writing <Card ....custom attributes.../> in APP.JS 
+file
+2. For that we use map function ,map function basically get 
+applied on array and then it will run the corresponding 
+function which is mention in map function argument for 
+each value of array.
+SYNTAX: array.map(function1)
+and then we can define this function ('function1') outside the
+App function 
+3. Instead of defining function1 above we can use fat arrow 
+function to define the required function on the spot 
+generally this method is preferred.
+APP.JSX FILE***********************************
+import React from "react";
+import Card from "./Card";
+import arrobj from "./arrobj";
+// function ncard(val) {
+// return (
+// <Card
+// name={val.name}
+// date={val.date}
+// tittle={val.tittle}
+// price={val.price}
+// />
+// );
+// }
+function App() {
+ return (
+ <>
+ {arrobj.map((val)=>{
+ return (
+ <Card
+ name={val.name}
+ date={val.date}
+ tittle={val.tittle}
+ price={val.price}
+ />
+ );
+ })};
+ </>
+ );
+}
+export default App;
+*********************************************
+***************************************************
+*******************
+LECTURE-15
+1. The map() method creates a new array with the results of 
+calling a
+function for every array element.
+2. The map() method calls the provided function once for 
+each element
+in an array, in order.
+SYNTAX :
+array.map(function(currentValue, index, arr), thisValue)
+3.
+ARGUMENTS DESCRIPTION
+currentValue -> Required. The value of the current 
+element
+index Optional. -> The array index of current element
+arr Optional. -> The array object the current element 
+belongs to
+***************************************************
+*******************
+LECTURE-16
+1. The array of object which we have created to fetch our 
+data have only custom attribute field but according to react 
+that each object must contain an unique identifier which 
+must pe passed as key prop during mapping.
+2. Also we are doing nesting components here.
+CARD.JSX*****************************************
+import React from "react";
+import Header from "./Header";
+function Card(props) {
+ 
+ return (
+ <>
+ <div className="card">
+ <div className="header">
+ <Header name={props.name} date={props.date}/>
+ </div>
+ <img
+ className="image"
+ src="https://picsum.photos/300/300"
+ alt="Product Image"
+ />
+ <div className="content">
+ <span className="item_tittle">{props.tittle}</span>
+ <span className="price">Price : {props.price}</span>
+ <p className="descr">
+ Lorem ipsum dolor sit, amet consectetur adipisicing 
+elit. Quisquam,
+ eos.
+ </p>
+ <button className="chat">CHAT</button>
+ </div>
+ </div>
+ </>
+ );
+}
+export default Card;
+***************************************
+HEADER.JSX***************************
+import React from 'react';
+const Header=(props)=>{
+ return(
+ <> 
+ <h2 className="upld_name">{props.name}</h2>
+ <p className="upld_date">{props.date}</p>
+ </>
+ )
+}
+export default Header;
+*****************************************
+APP.JSX******************
+import React from "react";
+import Card from "./Card";
+import arrobj from "./arrobj";
+function App() {
+ return (
+ <>
+ {arrobj.map((val,index)=>{
+ return (
+ <Card
+ key={val.index}
+ name={val.name}
+ date={val.date}
+ tittle={val.tittle}
+ price={val.price}
+ />
+ );
+ })};
+ </>
+ );
+}
+export default App;
+*********************************
+***************************************************
+*******************
+LECTURE-17
+1. We can use if else statements to maipulate components 
+that is based on the user choice we can make him to see only 
+that component which he demands.
+2. It can also be done via ternary operators
+(condition)?<component1/> : <component2/>
+LECTURE-18 
+1. We have made a slot machine project in which we have to 
+feed three values and it will return whehter the values are 
+equal or not.
+APP.JSX*********************
+import React from "react";
+import Slot from "./Slot";
+function App() {
+ return (
+ <>
+ <h1 className="mainhead">Welcome to slot Machine 
+game</h1>
+ <div className="container">
+ <Slot x="1" y="1" z="1" />
+ <hr />
+ <Slot x="1" y="2" z="1" />
+ <hr />
+ <Slot x="2" y="2" z="3" />
+ <hr />
+ <Slot x="2" y="2" z="2" />
+ <hr />
+ </div>
+ </>
+ );
+}
+export default App;
+**************************************
+SLOT.JSX***************************
+import React from "react";
+const Slot = (props) => {
+ let { x, y, z } = props; // object destructuring(breaking down
+into fragments in just one line)
+ if ((x === y) &&( y === z)) {
+ return (
+ <>
+ <div className="smcontain">
+ <p className="Center">{x} {y} {z}</p>
+ <p className="match Center">Macthing Case</p>
+ </div>
+ </>
+ );
+ } else {
+ return (
+ <>
+ <div className="smcontain">
+ <p className="Center">{x} {y} {z}</p>
+ <p className="notmatch Center">Not A Matching 
+Case</p>
+ </div>
+ </>
+ );
+ }
+};
+export default Slot;
+*************************************
+INDEX.CSS*********************
+*{
+ margin: 0px;
+ padding: 0px;
+ box-sizing: border-box;
+ font-family: cursive;
+}
+.mainhead{
+ text-align: center;
+ font-weight: bold;
+}
+.container{
+ width:500px;
+ height:400px;
+ margin:auto;
+ border:3px solid black;
+ border-radius: 20px;
+}
+.match{
+ color:rgb(77, 125, 4);
+}
+.notmatch{
+ color:red;
+}
+.smcontain{
+ background-color: rgb(242, 242, 208);
+ border: 2px solid black;
+ border-radius: 10px;
+}
+.Center{
+ text-align: center;
+}
+***********************************
+***************************************************
+*******************
+LECTURE-19(React Hooks)
+1. Hooks are the new feature introduced in the React 16.8 
+version.
+2. It allows you to use state and other React features without
+writing
+a class. Hooks are the functions which "hook into" React 
+state and
+lifecycle features from function components.
+3. It does not work inside classes.
+4. Hooks should always be used at the top level of the React
+functions. 
+5. "useState() " function return two values one is the 
+variable and another is again a function which act as a 
+updater for variable
+useState()=[undefined, f];
+6. Basically via useState() function we set the intial value of 
+variable and then we call function f to update its value
+APP.JSX***********************
+import React,{ useState } from "react";
+const App = () => {
+ let [count,setCount]=useState(0);
+ const incnum = () => {
+ setCount(++count);
+ };
+ const decnum = () => {
+ setCount(--count);
+ };
+ return (
+ <>
+ <h1>{count}</h1>
+ <button onClick={incnum}>Click INC</button>
+ <button onClick={decnum}>Click DEC</button>
+ </>
+ );
+};
+export default App;
+*********************************
+***************************************************
+******************
+LECTURE-20 (Event handling)
+1. In this lecture we have seen various event and there firing 
+like:
+onClick={function_name};
+onDoubleClick={funtion2_name};
+APP.JSX**************************
+import React,{ useState } from "react"
+const App = () => {
+ let[bg,setcolor]=useState('yellow');
+ let[orgtext,modifytext]=useState('hiiii')
+ const updatecolor=()=>{
+ setcolor('blue');
+ modifytext('hellow bro')
+ }
+ const secfunc=()=>{
+ setcolor('red');
+ modifytext('chup bee pka mat');
+ }
+ const changetext=()=>{
+ 
+ }
+ return(
+ <>
+ <div style={{backgroundColor:bg, 
+height:'100vh',width:'100vw'}}>
+ <button className="=btn" onClick={updatecolor} 
+onDoubleClick={secfunc}>{orgtext}</button>
+ </div>
+ </>
+ );
+};
+export default App;
+********************************
+***************************************************
+*******************
+LECTURE-21
+1. In this lecture we know about react controlled component
+ -> in a controlled component form data is handled by a 
+react component The alternative is uncontrolled 
+components, where form data is handled by the DOM itself
+2. wehave seen onChange event also which get fired up when 
+any change occur.
+APP.JSX*********************************
+import React, { useState } from "react";
+const App = () => {
+ let[name,setname]=useState("");
+ let[fullname,setfullname]=useState("");
+ const updatename=(event)=>{
+ setname(event.target.value);
+ }
+ const reupname=()=>{
+ setfullname(name);
+ }
+ return (<>
+ <div className="back">
+ <h1 className="heading">Hellow {fullname}</h1>
+ <input type="text" value={name} className="inptag" 
+placeholder="Enter you Name" onChange={updatename}/>
+ <button className="btn" onClick={reupname} >CLICK 
+ME</button>
+ </div>
+ 
+ </>);
+};
+export default App;
+********************************
+***************************************************
+****************
+LECTURE-22
+1. It is default behaviour of form to refresh the page as we 
+know it applies mentioned request.
+2. form tage contain an event "onSubmit" which get fired 
+when we submit form
+so using this event we created a funtion in which we nulllify 
+the default behaviour of from tag.
+APP.JSX***********************
+import React, { useState } from "react";
+const App = () => {
+ let [name, setname] = useState("");
+ let [fullname, setfullname] = useState("");
+ let [lastname, setlastname] = useState("");
+ let [oplastname, setoplastname] = useState("");
+ const updatename = (event) => {
+ setname(event.target.value);
+ };
+ const updatelastname = (event) => {
+ setlastname(event.target.value);
+ };
+ const reupname = () => {
+ setfullname(name);
+ setoplastname(lastname);
+ };
+ const remove_default_beh=(event)=>{
+ event.preventDefault();
+ }
+ return (
+ <>
+ <div className="back">
+ <form onSubmit={remove_default_beh}>
+ <h1 className="heading">
+ Hellow {fullname} {oplastname}
+ </h1>
+ <input
+ type="text"
+ value={name}
+ className="inptag"
+ placeholder="Enter you Name"
+ onChange={updatename}
+ />
+ <input
+ type="text"
+ value={lastname}
+ className="inptag"
+ placeholder="Enter you Last Name"
+ onChange={updatelastname}
+ />
+ <button className="btn" onClick={reupname}>
+ CLICK ME
+ </button>
+ </form>
+ </div>
+ </>
+ );
+};
+export default App;
+*****************************
+***************************************************
+******************
+LETURE-23
+1. In this lecture we see how we can pass an object in hooks 
+and we can also manipulate them, instead of creating 
+hooks(useState() variable) for each input tag we can create a
+single hook consisting of object containing all tags.
+APP.JSX**********************
+import React, { useState } from "react";
+const App = () => {
+ let [name, setfullname] = useState({
+ fName: "",
+ lName: "",
+ });
+ const remove_default_beh = (event) => {
+ event.preventDefault();
+ 
+ };
+ const inputevent=(event)=>{
+ const name=event.target.name;
+ const value=event.target.value;
+ setfullname((prevalue)=>{
+ if(name==='fName'){
+ return(
+ {
+ fName:value,
+ lName:prevalue.lName
+ }
+ )
+ }
+ else if(name==='lName'){
+ return(
+ {
+ fName:prevalue.fName,
+ lName:value
+ }
+ )
+ }
+ })
+ 
+ }
+ return (
+ <>
+ <div className="back">
+ <form onSubmit={remove_default_beh}>
+ <h1 className="heading">
+ Hellow {name.fName} {name.lName}
+ </h1>
+ <input type="text" name="fName" 
+value={name.fName}placeholder="Enter you Name" 
+onChange={inputevent}/>
+ <input type="text" name="lName" 
+value={name.lName}placeholder="Enter you Last Name" 
+onChange={inputevent} />
+ <button className="btn">CLICK ME</button>
+ </form>
+ </div>
+ </>
+ );
+};
+export default App;
+************************************
+***************************************************
+*******************
+CHALLENGE*********************
+import React, { useState } from "react";
+const App = () => {
+ let [name, setfullname] = useState({
+ fName: "",
+ lName: "",
+ eMail:"",
+ pHone:""
+ });
+ const remove_default_beh = (event) => {
+ event.preventDefault();
+ 
+ };
+ const inputevent=(event)=>{
+ const name=event.target.name;
+ const value=event.target.value;
+ setfullname((prevalue)=>{
+ if(name==='fName'){
+ return(
+ {
+ fName:value,
+ lName:prevalue.lName,
+ eMail:prevalue.eMail,
+ pHone:prevalue.pHone
+ }
+ )
+ }
+ else if(name==='lName'){
+ return(
+ {
+ fName:prevalue.fName,
+ lName:value,
+ eMail:prevalue.eMail,
+ pHone:prevalue.pHone
+ }
+ )
+ }
+ else if(name==='eMail'){
+ return(
+ {
+ fName:prevalue.fName,
+ lName:prevalue.lName,
+ eMail:value,
+ pHone:prevalue.pHone
+ }
+ )
+ }
+ else if(name==='pHone'){
+ return(
+ {
+ fName:prevalue.fName,
+ lName:prevalue.lName,
+ eMail:prevalue.eMail,
+ pHone:value
+ }
+ )
+ }
+ })
+ }
+ return (
+ <>
+ <div className="back">
+ <form onSubmit={remove_default_beh}>
+ <h1 className="heading">
+ Hellow {name.fName} {name.lName}
+ </h1>
+ <p>{name.eMail}</p>
+ <p>{name.pHone}</p>
+ <input type="text" name="fName" 
+value={name.fName}placeholder="Enter you Name" 
+onChange={inputevent}/>
+ <input type="text" name="lName" 
+value={name.lName}placeholder="Enter you Last Name" 
+onChange={inputevent} />
+ <input type="text" name="eMail" 
+value={name.eMail}placeholder="Enter you eMail" 
+onChange={inputevent} />
+ <input type="number" name="pHone" 
+value={name.pHone}placeholder="Enter you pHone" 
+onChange={inputevent} />
+ <button className="btn">CLICK ME</button>
+ </form>
+ </div>
+ </>
+ );
+};
+export default App;
+***************************************************
+************
+NOTE: in an html tag we have an attribute "autocomplete" if 
+we make it off
+that is <htmltag ..... , autocomplete: "off"...../> then it will 
+not show the previous attributes which are filled in that 
+field as options while filling that field.
+***************************************************
+****************
+LECTURE-23
+1. javaScript ES6 introduced the spread operator. The syntax
+is three dots(...) followed by the array or object (or 
+iterable*).
+2. spred operator basically used to avoid rewriting of same 
+code.It can merge two array or objects easily syntax is three 
+dots followed by name of the array . It expands the array into
+individual elements. So, it can be used to expand the array in 
+a places where zero or more elements are expected.
+INDEX.JS (we are writing the code below the code of 
+index.js)
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";
+ReactDOM.render(
+ <App/>,
+ document.getElementById("root")
+);
+// const arr=[1,'hellow','bro'];
+// const arr2=[2,'bii',...arr,23];
+// console.log(arr);
+// console.log(arr2);
+// const arr3=[432,432,...arr,...arr2]
+// console.log(arr3);
+// const[first,...remaining]=arr3;
+// console.log(remaining);
+// console.log(first);
+// const obj1={
+// name:"harsh",
+// lname:"raghuvanshi"
+// }
+// const obj2={
+// ...obj1,
+// marks:23,
+// age:20,
+// remarks:"good"
+// }
+// console.log(obj2);
+****************************************
+***************************************************
+*******************
+LECTURE-24
+1. In this lecture we reduce the code using spread operator 
+that we have seen in previous lecture.
+APP.JSX****************************
+import React, { useState } from "react";
+const App = () => {
+ let [name, setfullname] = useState({
+ fName: "",
+ lName: "",
+ eMail: "",
+ pHone: "",
+ });
+ const remove_default_beh = (event) => {
+ event.preventDefault();
+ };
+ const inputevent = (event) => {
+ const {name, value} = event.target;
+ setfullname((prevalue) => {
+ console.log(prevalue);
+ return {
+ ...prevalue,
+ [name]: value
+ };
+ });
+ };
+ return (
+ <>
+ <div className="back">
+ <form onSubmit={remove_default_beh}>
+ <h1 className="heading">
+ Hellow {name.fName} {name.lName}
+ </h1>
+ <p>{name.eMail}</p>
+ <p>{name.pHone}</p>
+ <input
+ type="text"
+ name="fName"
+ value={name.fName}
+ placeholder="Enter you Name"
+ onChange={inputevent}
+ />
+ <input
+ type="text"
+ name="lName"
+ value={name.lName}
+ placeholder="Enter you Last Name"
+ onChange={inputevent}
+ />
+ <input
+ type="text"
+ name="eMail"
+ value={name.eMail}
+ placeholder="Enter you eMail"
+ onChange={inputevent}
+ />
+ <input
+ type="number"
+ name="pHone"
+ value={name.pHone}
+ placeholder="Enter you pHone"
+ onChange={inputevent}
+ />
+ <button className="btn">CLICK ME</button>
+ </form>
+ </div>
+ </>
+ );
+};
+export default App;
+*********************************
+***************************************************
+***************
+LECTURE-25
+1. In this lecture we have read about material ui package it is 
+a package which is used to get icons in react js
+2. to install this package and use it refer to its official 
+website "mui.com"
+3. we also modified our project of todo list in this lecture and 
+instead of completely removing the element on clicking the 
+cross button we have cut it down using css 
+property(text-decoreation:line-through).
+***************************************************
+******************************
+LECTURE-26
+1. In this lecture we will see how to add bootstrap in you 
+react project for that we have to go in terminal and write 
+npm i bootstrap it will install the latest version of bootstrap .
+2. The installed bootstrap package will go inside the 
+nodemodules files .
+3. Now to use functnatily of bootstrap we have to include it 
+in our project for that we go inside the nodemodules-> 
+bootstrap -> dist -> css -> bootstrap.min.css
+then we have to copy the path at this stage and import it in 
+your app.jsx file 
+4. Now if we add any of its property like 'btn btn-sucess' than
+it will show its affect
+APP.JSX********************************************
+*******************************
+import React from 'react';
+import 
+'../node_modules/bootstrap/dist/css/bootstrap.min.css';
+const App=()=>{
+ return(
+ <>
+ <h1 className='text-bg-danger text-center' >heloow 
+world</h1>
+ <button type='button' className='btn 
+btn-outline-success'>click me</button>
+ <button type="button" class="btn 
+btn-outline-warning">Warning</button>
+ </>
+ );
+};
+export default App;
+***************************************************
+*************************************
+LECTURE-27 (Challenge)
+1. In this lecture we have complete your accordian project in 
+which on clicking the buttons the content get hide or show
+2. To achieve that we look at variou new things like how to 
+show a certain part of a component and controlling it with 
+boolean variable.
+3. To get emoji at anywhere press "Windows + . "
+APP.JSX***********************
+import React from 'react';
+import 
+'../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import arrobj from'./arrob';
+import Accordian from './Accordian';
+const App=()=>{
+ return(
+ <>
+ <h1 className="text-center">This is Accordian</h1>
+ {
+ arrobj.map(({key,question,answer})=>{
+ return <Accordian key={key} question={question} 
+answer={answer}/>
+ })
+ }
+ </>
+ );
+};
+export default App;
+************************************************
+ACCORDIAN.JSX******************
+import React,{useState} from 'react';
+const Accordian=({question,answer})=>{
+ let [show,setshow]=useState(false);
+ return(
+ <>
+ <div className='text-center'>
+ <div>
+ <button className='m-3' 
+style={{display:'inline',color:'blue'}} onClick={()=>{
+ setshow(!show);
+ }}>{show?" ":" "}</button> ➖ ➕
+ // Toggling the sign of button.
+ <p style={{display:'inline-block'}}>{question}</p>
+ </div>
+ <div>
+ {show && <p>{answer}</p>}
+ </div>
+ </div>
+ </>
+ );
+}
+export default Accordian;
+***************************************************
+*********
+4. arrobj file contain api that is array of object.
+5. { show && <p>........... </p> } is basically saying that when 
+show is true only then show the component part 'p'.
+LECTURE-28
+1. In this lecture we will learn about context API 
+2. 
+=> parent ->children1 -> children2 -> children3 :In this 
+scenario if we have to pass argument to third children then 
+we have to also pass it to children1 and children2 in order to 
+avoid this complexity we use context switch.
+=> Context Api : basically it is used to transfer data(props) to
+grandchildren component or further lower component 
+without interfering the intermediate children.
+3. Inorder to use context api first we have to create it then 
+we will create Producer of context api and consumer of 
+context api
+4.After creating context we have to export it and then we 
+will import it in any children file and use it . We feed 
+agrument using value attribute in contest api
+5. While consuming context api it always expect a function 
+between both tags and this function contain argument ,with 
+the value, which are passed while creating the context api 
+arguments.
+APP.JSX*********************
+import React, { createContext } from "react";
+import CompA from "./CompA";
+const firstname = createContext();
+const lastname = createContext();
+const App = () => {
+ return (
+ <>
+ <firstname.Provider value="Harsh987">
+ <lastname.Provider value="Raghuvanshi">
+ <CompA/>
+ </lastname.Provider>
+ </firstname.Provider>
+ </>
+ );
+};
+export default App;
+export {firstname,lastname};
+**************************************
+COMPA.JSX*************************
+import React from 'react';
+import CompB from './CompB';
+const CompA=()=>{
+ return (
+ <>
+ <CompB/>
+ </>
+ );
+};
+export default CompA;
+**************************************
+COMPB.JSX****************************
+import React from 'react';
+import CompC from './CompC';
+const CompB=()=>{
+ return (
+ <>
+ <CompC/>
+ </>
+ );
+};
+export default CompB;
+*****************************************
+COMPC.JSX*****************************
+import React from 'react';
+import { firstname,lastname } from './App';
+const CompC=()=>{
+ return (
+ <>
+ <firstname.Consumer>{
+ (fname)=>{
+ return (
+ <lastname.Consumer>
+ {
+ (lname)=>{
+ return <h1>MY name is {fname} {lname}</h1>;
+ }
+ }
+ </lastname.Consumer>
+ );
+ }
+ }
+ </firstname.Consumer>
+ </>
+ );
+};
+export default CompC;
+***********************************
+***************************************************
+**********************************
+LECTURE-29
+1. The above method of using context api is lenghty to resolve
+that we used "useContext" basically using it we can simply 
+use our created context in just one line instead of passing 
+function while consuming the context api.
+2. SYNTAX: const Variable_name= 
+useContext("context_api_name");
+App.JSX*******************
+import React, { createContext } from "react";
+import CompA from "./CompA";
+const firstname = createContext();
+const lastname = createContext();
+const App = () => {
+ return (
+ <>
+ <firstname.Provider value="Harsh">
+ <lastname.Provider value="Raghuvanshi">
+ <CompA/>
+ </lastname.Provider>
+ </firstname.Provider>
+ </>
+ );
+};
+export default App;
+export {firstname,lastname};
+****************************************
+CompA.JSX******************
+import React from 'react';
+import CompB from './CompB';
+const CompA=()=>{
+ return (
+ <>
+ <CompB/>
+ </>
+ );
+};
+export default CompA;
+**********************************
+CompB.JSX*************
+import React from 'react';
+// import CompC from './CompC';
+import { firstname,lastname } from './App';
+import { useContext } from 'react';
+const CompB=()=>{
+ const fname=useContext(firstname);
+ const lname=useContext(lastname);
+ return (
+ <>
+ {/* <CompC/> */}
+ <h1>My name is {fname} {lname}</h1>
+ </>
+ );
+};
+export default CompB;
+*************************************
+***************************************************
+******************************************
+LECTURE-30
+1. useEffect is used to execute a code every time when we 
+performed some action or change on the page in simple 
+language we can say that when any event happen useEffect 
+get fired up.
+2. we used useEffect because if we supply two functions in 
+onClick attibute then only one function get fired up another 
+will not to avoid that useEffect can be used.
+3. useEffect takes two argument one is callback function 
+which is supposed to be fire on change and another is 
+variable on whose change the callback will get fired if we 
+don't supply that then it automatically get fired for every 
+event.
+4. We supply them as an array(events on which funtion is to 
+be fired).
+SYNTAX: useEffect( ( )=>{.............}, [event,...]);
+APP.JSX *******************************
+import React, { createContext } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+const App = () => {
+ let [num, setnum] = useState(0);
+ let [nums, setnums] = useState(0);
+ useEffect(()=>{
+ alert("I am clicked");
+ },[num])
+ return (
+ <>
+ <button
+ onClick={() => {
+ setnum(++num);
+ }}
+ >
+ Click me {num}
+ </button>
+ <button
+ onClick={() => {
+ setnums(++nums);
+ }}
+ >
+ Click me {nums}
+ </button>
+ </>
+ );
+};
+export default App;
+*****************************
+***************************************************
+****************************************
+LECTURE-31
+1. It is a challenge to change the tittle as we click on button.
+APP.JSX****************************
+import React, { createContext } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+const App = () => {
+ let [num, setnum] = useState(0);
+ let [nums, setnums] = useState(0);
+ useEffect(()=>{
+ document.getElementById('tittle').innerHTML=`you 
+clicked ${num} times`;
+ },[num])
+ return (
+ <>
+ <button
+ onClick={() => {
+ setnum(++num);
+ }}
+ >
+ Click me {num}
+ </button>
+ <button
+ onClick={() => {
+ setnums(++nums);
+ }}
+ >
+ Click me {nums}
+ </button>
+ </>
+ );
+};
+export default App;
+**************************************
+***************************************************
+******************************
+LECTURE-32(CHALLENGE)
+***************************************************
+*****************************
+LECTURE-33(Router in React Js)
+1. In this lecture we see how we can do routing in react js 
+this routing is same as nodejs routing (which is serving client
+different files on different requests)
+2. Here we use a package 'react-router-dom' and use its 
+functionality BrowserRouter,Route,Switch which have 
+different task.
+3. While routing the user to different page page reloading 
+won't takes places unlike normal html file serving .
+4. Switch is responsible for identification of request and 
+serving file it find the first match request among all the 
+routes which are mentioned inside it and Serve.
+5. We used switch because if we don't use it then Route will 
+give all the files that come in the path of request made by 
+user
+6. But again it is limitation of switch that it see only first 
+matching request to avoid this scenario we use "exact" 
+attribute in Route element
+7. BrowserRouter is applied on file containing Switch and 
+Route that is on app.jsx file.
+8. Switch get depricated so we use Routes in its place which 
+will do the same thing but slightly better tha switch as it 
+guides client only to those page whose are exactly requested
+9. We can use "*" operator to handle rest other request made 
+on website just like node js.
+INDEX.JS*********************
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+ReactDOM.render(
+ <BrowserRouter>
+ <App/>
+ </BrowserRouter>,
+ document.getElementById("root")
+);
+***********************************
+APP.JSX**************************
+import React from "react";
+import Contact from "./Contact";
+import About from "./About";
+import Error from './Error';
+import {Route,Routes} from 'react-router-dom';
+const App = () => {
+ const Name=()=>{
+ return(<><h1>hello bhai</h1></>)
+ }
+ return(
+ <>
+ <Routes>
+ <Route exact path='/' Component={About}/>
+ <Route path="/contact" Component={Contact}/>
+ <Route path="/contact/name" Component={Name}/>
+ <Route path='*' Component={Error}/>
+ </Routes>
+ 
+ </>
+ );
+};
+export default App;
+***************************************
+LECTURE-34(Creating Navbar)
+1. In this lecture we see creation of navbar using anchor tag 
+but due to use of anchor the page reloading takes place
+2. To avoid this WE use "NavLink" in place of anchor tag just 
+like anchor tag it also have some attribute like 'to' in place of 
+'href'.
+3. NavLink also have an attribute 'activeClassName' using 
+which we can fire a particular css like if we want that user 
+can know on which page he is standing by looking at navbar 
+then he can
+4. basically activeClassName:'class_name' make class active 
+the corresponding mentioned class.
+5. We can also use Link in place of NavLink but it do not have 
+additional features like 'activeClassName'.
+6. activeClassName is now depricated.
+App.jsx************************
+import React from "react";
+import Contact from "./Contact";
+import About from "./About";
+import Error from './Error';
+import Menu from './Menu';
+import {Route,Routes} from 'react-router-dom';
+const App = () => {
+ const Name=()=>{
+ return(<><h1>hello bhai</h1></>)
+ }
+ return(
+ <>
+ <Menu/>
+ <Routes>
+ <Route exact path='/' Component={About}/>
+ <Route path="/contact" Component={Contact}/>
+ <Route path="/contact/name" Component={Name}/>
+ <Route path='*' Component={Error}/>
+ </Routes>
+ 
+ </>
+ );
+};
+export default App;
+*************************************
+LECTURE-35
+1. we have two methods in Route i-> Component ii-> Render.
+2. The difference between them is that Component will 
+create a new component or element every time it is called 
+while Render will create element for the first time when it is 
+called and on further calling it will simply update the 
+element and show it (not creating it again).
+3. There is no difference on performance we can use either of 
+them
+4. But when we need to pass props we use render and when 
+we have to show a page which is completely static i.e. it will 
+not change then we use Component.
+5. We can also pass props using component using a call back 
+function.
+SYNTAX: <Route ... Component={()=><somcomp ....props to 
+be passed..../>}
+***************************************************
+*************************************
+LECTURE-36(useParams hooks )
+1. To get the url information and manipulating pages on basis
+or these requests is achieved via useParams() function
+2. First we have to import this function from 
+react-router-dom then we recieve it via an object and we use 
+the variables of object to project customize outputs.
+3. Remeber the names which you mention in path attribute 
+have same name while importing the object with params.
+APP.JSX******************
+import React from "react";
+import Contact from "./Contact";
+import About from "./About";
+import Error from './Error';
+import Menu from './Menu';
+import Services from "./Services";
+import {Route,Routes} from 'react-router-dom';
+const App = () => {
+ 
+ return(
+ <>
+ <Menu/>
+ <Routes>
+ <Route exact path='/' Component={()=> <About name= 
+'harsh'/>}/>
+ <Route exact path="/contact" Component={()=><Contact 
+name='hellow'/>}/>
+ <Route exact path="/services/:fname/:lname" 
+Component={()=><Services name='services'/>}/>
+ <Route path='*' Component={Error}/>
+ </Routes>
+ 
+ </>
+ );
+};
+export default App;
+**************************************************
+SERVICES.JSX*******************************
+import React from 'react';
+import { useParams } from 'react-router-dom';
+const Services=(props)=>{
+ const {fname,lname}=useParams();
+ return (
+ <>
+ <h1>This is {props.name} Me Page Bro..... and services to 
+provide is {fname} {lname}</h1>
+ </>
+ );
+};
+export default Services;
+******************************************
+LECTURE-37(useLocation hook)
+1. useLocation hook is used to get complete location of 
+request and using this complete information (that is till 
+endpoint) we can manipulate our pages.
+3. useLocation() will return a object in which pathname 
+consist of information about path.
+APP.JSX will remain same 
+SERVICES.JXS************
+// basically in this code we are identifying an user an creating
+a customize button for him on clicking which he gets an 
+notification.
+import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+const Services=(props)=>{
+ const {fname,lname}=useParams();
+ const location=useLocation();
+ console.log(location);
+ return (
+ <>
+ <h1>This is {props.name} Me Page Bro..... and services to 
+provide is {fname} {lname}</h1>
+ <p>The current location is : {location.pathname}</p>
+ {location.pathname==='/services/a/b'? (<button 
+onClick={()=>alert('you are special user')}>Click 
+bro</button>):null}
+ 
+ </>
+ );
+};
+export default Services;
+****************************************
+LECTURE-38(useNavigate hook)
+1. This is used to keep track of history, useNavigate again 
+returns an object containing all the information it also 
+contain information about location but we wouldn't use it as 
+it is mutable.
+2. useNavigate's navigate(-1) can be used to go to previous 
+pages that we have visited.
+3. If on clicking we want to go to specified page then we use 
+navigat('/about');
+SERVICES.JSX*************
+import React from 'react';
+import { useLocation, useNavigate, useParams } from 
+'react-router-dom';
+const Services=(props)=>{
+ const {fname,lname}=useParams();
+ const location=useLocation();
+ const navigate=useNavigate();
+ 
+ return (
+ <>
+ <h1>This is {props.name} Me Page Bro..... and services to 
+provide is {fname} {lname}</h1>
+ <p>The current location is : {location.pathname}</p>
+ {location.pathname==='/services/a/b'? (<button 
+onClick={()=>navigate(-1)}>Click bro</button>):null}
+ 
+ </>
+ );
+};
+export default Services;
+***************************************
+NOTE: We cannot use words like image picture photo in alt 
+attribute of image
+Also we are allowed to pass only string enclosed in single or 
+double brackets in src attribute of img so inorder to pass 
+cutomize string first create it using bactics and then pass it
+LECTURE-39***************
+1. We have complete a challenge in which we have create a 
+image search engine using useEffect.
+2. For that we have just added extra link of Search in App.jsx
+file by creating a Search component and all the modification 
+we are doing in Search.jsx file
+SEARCH.JSX****************
+import React from "react";
+import { useState } from "react";
+const Search = () => {
+ let [item, setitem] = useState("");
+ let[imglink,updateimg]=useState();
+ const inputevent = (event) => {
+ setitem(event.target.value);
+ 
+updateimg(`https://source.unsplash.com/600x400/?${item}`
+)
+ };
+ return (
+ <>
+ <input
+ type="text"
+ onChange={inputevent}
+ placeholder="Enter item to be searched"
+ value={item}
+ />
+ <img
+ src={imglink}
+ alt="anyphotu"
+ />
+ </>
+ );
+};
+export default Search;
+****************************************
+NOTE: We can pass only objects when we use callback 
+functions in component attribute of Route 
+But if we do not use call back function in component then we
+cannot pass object(i.e component form of a file ) we have to 
+simply write name with which we have imported file
+EXAMPLE:
+import React from "react";
+import Contact from "./Contact";
+import About from "./About";
+import Error from './Error';
+import Search from "./Search";
+import Menu from './Menu';
+import Services from "./Services";
+import {Route,Routes} from 'react-router-dom';
+const App = () => {
+ 
+ return(
+ <>
+ <Menu/>
+ <Routes>
+ <Route exact path='/' Component={()=> <About name= 
+'harsh'/>}/>
+ <Route exact path="/contact" Component={()=><Contact 
+name='hellow'/>}/>
+ <Route exact path="/services/:fname/:lname" 
+Component={()=><Services name='services'/>}/>
+ <Route exact path='/search' Component={()=><Search/>}/>
+ <Route path='*' Component={Error}/>
+ 
+ </Routes>
+ 
+ </>
+ );
+};
+export default App;
+**********************************************
+you can see Error is pass as it is imported .
+LECTURE-40
+1. In this lecture we see how we can redirect a user to home 
+page when he makes a unwanted url request
+APP.JSX*****************
+import React from "react";
+import Contact from "./Contact";
+import About from "./About";
+import Error from './Error';
+import Search from "./Search";
+import Menu from './Menu';
+import Services from "./Services";
+import {Route,Routes, useNavigate} from 'react-router-dom';
+const App = () => {
+ const Navigate=useNavigate()
+ return(
+ <>
+ <Menu/>
+ <Routes>
+ <Route exact path='/' Component={()=> <About name= 
+'harsh'/>}/>
+ <Route exact path="/contact" Component={()=><Contact 
+name='hellow'/>}/>
+ <Route exact path="/services/:fname/:lname" 
+Component={()=><Services name='services'/>}/>
+ <Route exact path='/search' Component={()=><Search/>}/>
+ <Route path='*' Component={()=>Navigate('/')}/>
+ 
+ </Routes>
+ 
+ </>
+ );
+};
+export default App;
+*************************************
+LECTURE-41
+1. If Else condition in React using it we can control the Components visibility 
+    if(Condition){
+      return(
+        <Component1/>;
+      )
+    }
+    else return <Component2/>;
+2. It's Enchanced version is ternary operator with syntax like:
+    (Condition of if)? <Component1/> : <Component2/>
+
+TODO list project
+1. pay attention towar how to delete item from todo list
+
+App.jsx code***************************
+import React, { useState } from "react";
+import Item from "./Item";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+// const Item = (props) => {
+
+//   return (
+//     <>
+//       <div className="item">
+//          <span>{props.val}</span>
+//       </div>
+//     </>
+//   );
+// };
+const App = () => {
+  let [list, setlist] = useState([]);
+  let [input1, setinput] = useState("");
+  const removing = (id) => {
+    setlist((oldlist)=>{
+        return oldlist.filter((el,ind)=>{
+          return id!==ind;
+        })
+        
+    })
+  }
+
+  const keepw = (event) => {
+    let value = event.target.value;
+    setinput(value);
+  };
+  const adding = () => {
+    console.log('adding')
+    setlist((prev) => {
+      let arr = [...prev, input1];
+      console.log('added');
+      setinput("");
+      return arr;
+    });
+  };
+  return (
+    <>
+      <div className="main">
+        <div className="box">
+          <div className="head">
+            <h1 className="heading">
+              To Do List <AccessTimeFilledIcon />
+            </h1>
+          </div>
+          <input
+            type="text"
+            className="inp"
+            placeholder="Enter item to be added"
+            value={input1}
+            onChange={keepw}
+          />
+          <button className="btn" onClick={adding}>
+            +
+          </button>
+          <div className="content">
+            {list.map((value, index) => {
+              return (
+                <Item key={index} id={index} onselect={removing} val={value} />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+export default App;
+*****************************************
+
+Item.jsx code**********************
+import React, { useState } from "react";
+const Item = (props) => {
+    let [flag,setflag]=useState(false);
+    const cutit=()=>{
+        setflag(!flag);
+        console.log("exdcuted");
+    }
+
+  return (
+    <>
+      <div className="item"  style={{textDecoration:flag?"line-through":"none"}}>
+        <button className="rbtn"  onDoubleClick={()=>{ props.onselect(props.id)}}  onClick={cutit}>
+          -
+        </button>{" "}
+        <span  >{props.val}</span>
+      </div>
+    </>
+  );
+};
+export default Item;
+**********************************************
+
+
+NOTE: Remember whenever you are trying to call another function when click operation is performed on some element then
+insted of calling it directly in onClick try to call it via fat arrow function like:
+
+  <button onClick={setname(value)}>........<button/> ---> this should be avoided
+  <button onChange={()=> setname(value)}>..........<button/> ---> is correct method
+
+
+USE EFFECT hook
+1. the empty array in use effect represent that it will invoke only one time that is when page is loaded first after that it will not 
+2.  if we do not provide second argument then it will invoke for every change on webpage 
+3. we can also control it's invokation by supplying the name of the variables on whose change we want to invoke our useeffect 
+
+React Routing:
+1. The Link tag is used in place of anchor tag in react it will apply the request to url as mentioned in "to" part of "Link" similiar to "href" in "a" in html.
+2. As soon as request is pasted to url now this request is handled by <Route/> it will analyze the request and send user to the page which is required all Route components are place inside <Routes/> and the file in which we perfomed our routing like app.jsx then the component <App/> is placed in between <BrowserRouter/> or <Router/> which is responsible for synchronization of UI of different pages.
+3. Navlink is depricated navlink posses an extra attribute which is activeClassName
+
+Use location : 
+1. It returns an object whose one of the attribute is pathname that is url 
+2. location object is also present in Use History but we avoid to use it from there beacause the location object present in UseHistory is can be changeable
+
+Use History:
+1. const history=UseHistory();
+2. <button onClick={()=>{history.push('/any_url')}}>Click Me<button/>  ---> It will send user to  specified url 
+3. <button onClick={()=>{history.goback()}}>Click Me<button/>  --->It will send user to previous page
+
+NOTE: If you face any kind of problem regarding the attributes available in hook like in useHistory or useLocation then simply create a variables with them like const history=useHistory() and then do console.log(history) --> to see its attribute
